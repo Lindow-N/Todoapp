@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import TodoList from './components/Todolist/index';
+import TodoList from './components/Todolist/Todolist';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

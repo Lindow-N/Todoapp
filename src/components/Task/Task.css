@@ -41,3 +41,7 @@
   width: 25%;
   height: 25%;
 }
+
+.task__label_icon :hover {
+  opacity: 0.5;
+}
