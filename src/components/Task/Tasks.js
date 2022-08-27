@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Task from "./Task";
 import "./Task.css";
 
-const Tasks = ({ tasks, onTaskCheckbox, onTaskDetail }) => (
+const Tasks = ({ tasks, onTaskCheckbox, onTaskDetail ,onTaskDelete}) => (
   <div className="tasks">
     <ul className="taskList">
       {tasks
@@ -15,6 +15,7 @@ const Tasks = ({ tasks, onTaskCheckbox, onTaskDetail }) => (
             key={task.id}
             onCheckbox={onTaskCheckbox}
             taskDetail={onTaskDetail}
+            taskDelete={onTaskDelete}
           />
         ))}
     </ul>

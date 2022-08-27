@@ -61,13 +61,22 @@ class TodoList extends PureComponent {
   addTask = (label, description, done = false) => {
     const { tasks } = this.state;
 
-    let maxID = Math.max(...tasks.map((task) => task.id));
-
-    this.setState({
-      tasks: [...tasks, { id: ++maxID, label, description, done }],
-      taskInputLabel: "",
-      taskInputDescription: "",
-    });
+    console.log(tasks.length);
+    if (tasks.length === 0) {
+      let maxID = 1;
+      this.setState({
+        tasks: [...tasks, { id: ++maxID, label, description, done }],
+        taskInputLabel: "",
+        taskInputDescription: "",
+      });
+    } else {
+      let maxID = Math.max(...tasks.map((task) => task.id));
+      this.setState({
+        tasks: [...tasks, { id: ++maxID, label, description, done }],
+        taskInputLabel: "",
+        taskInputDescription: "",
+      });
+    }
   };
 
   handleTaskDetail = (taskId) => () => {
@@ -114,6 +123,16 @@ class TodoList extends PureComponent {
     this.setState({ openTask: false });
   };
 
+  handleTaskDelete = (taskId) => () => {
+    const { tasks } = this.state;
+
+    let finalArrayTasks = tasks.filter((t) => t.id !== taskId);
+
+    this.setState({
+      tasks: finalArrayTasks,
+    });
+  };
+
   render() {
     const { taskInputLabel, tasks, taskInputDescription, taskDetail } =
       this.state;
@@ -121,44 +140,47 @@ class TodoList extends PureComponent {
     const nbProcessingTasks = tasks.filter((task) => !task.done).length;
     return (
       <div className="todoList-MainContainer">
-        <div className="todoList-TitleContainer">
-          <h1>
-            <span>Tasks</span> List
-          </h1>
+        <div className="todoList-TodoContainer">
+          <h1>To do list:</h1>
+          {this.state.openTask ? (
+            <>
+              <div className="todoList-bodyContainerDetail">
+                <TaskDetail
+                  taskDetail={taskDetail}
+                  inputValueLabel={taskInputLabel}
+                  inputValueDescription={taskInputDescription}
+                  onInputChange={this.handleTaskInputLabelChange}
+                  onInputChangeDescription={
+                    this.handleTaskInputDescriptionChange
+                  }
+                  onSubmit={this.UpdateTask}
+                  openTask={this.handleTaskDetailClose}
+                />
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="todoList-bodyContainer">
+                <Form
+                  inputValueLabel={taskInputLabel}
+                  inputValueDescription={taskInputDescription}
+                  onInputChange={this.handleTaskInputLabelChange}
+                  onInputChangeDescription={
+                    this.handleTaskInputDescriptionChange
+                  }
+                  onSubmit={this.addTask}
+                />
+                <Counter nbTask={nbProcessingTasks} />
+                <Tasks
+                  tasks={tasks}
+                  onTaskCheckbox={this.handleTaskCheckbox}
+                  onTaskDetail={this.handleTaskDetail}
+                  onTaskDelete={this.handleTaskDelete}
+                />
+              </div>
+            </>
+          )}
         </div>
-        {this.state.openTask ? (
-          <>
-            <div className="todoList-bodyContainerDetail">
-              <TaskDetail
-                taskDetail={taskDetail}
-                inputValueLabel={taskInputLabel}
-                inputValueDescription={taskInputDescription}
-                onInputChange={this.handleTaskInputLabelChange}
-                onInputChangeDescription={this.handleTaskInputDescriptionChange}
-                onSubmit={this.UpdateTask}
-                openTask={this.handleTaskDetailClose}
-              />
-            </div>
-          </>
-        ) : (
-          <>
-            <div className="todoList-bodyContainer">
-              <Counter nbTask={nbProcessingTasks} />
-              <Tasks
-                tasks={tasks}
-                onTaskCheckbox={this.handleTaskCheckbox}
-                onTaskDetail={this.handleTaskDetail}
-              />
-              <Form
-                inputValueLabel={taskInputLabel}
-                inputValueDescription={taskInputDescription}
-                onInputChange={this.handleTaskInputLabelChange}
-                onInputChangeDescription={this.handleTaskInputDescriptionChange}
-                onSubmit={this.addTask}
-              />
-            </div>
-          </>
-        )}
       </div>
     );
   }

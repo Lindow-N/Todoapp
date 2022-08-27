@@ -31,23 +31,25 @@ class Form extends React.PureComponent {
     return (
       <div className="form-MainContainer">
         <form className="addTaskForm" onSubmit={this.handleSubmit}>
-          <input
-            ref={this.inputRefLabel}
-            type="text"
-            className="addTaskForm__input"
-            placeholder="Ajouter un titre"
-            value={inputValueLabel}
-            onChange={onInputChange}
-            required={true}
-          />
-          <input
-            ref={this.inputRefDescription}
-            type="text"
-            className="addTaskForm__input"
-            placeholder="Ajouter une description"
-            value={inputValueDescription}
-            onChange={onInputChangeDescription}
-          />
+          <div className="form-inputs">
+            <input
+              ref={this.inputRefLabel}
+              type="text"
+              className="addTaskForm__input"
+              placeholder="Ajouter un titre"
+              value={inputValueLabel}
+              onChange={onInputChange}
+              required={true}
+            />
+            <input
+              ref={this.inputRefDescription}
+              type="text"
+              className="addTaskForm__input"
+              placeholder="Ajouter une description"
+              value={inputValueDescription}
+              onChange={onInputChangeDescription}
+            />
+          </div>
 
           <button type="submit">Ajouter une tâche</button>
         </form>

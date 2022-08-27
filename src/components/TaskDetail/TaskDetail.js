@@ -32,7 +32,7 @@ class TaskDetail extends React.PureComponent {
     } = this.props;
 
     return (
-      <div className="taskDetail-MainContainer">
+  
         <form
           className="taskDetail-UpdateTaskForm"
           onSubmit={this.handleSubmit}
@@ -60,7 +60,6 @@ class TaskDetail extends React.PureComponent {
             <button type="submit">Valider</button>
           </div>
         </form>
-      </div>
     );
   }
 }

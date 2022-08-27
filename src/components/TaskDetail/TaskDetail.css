@@ -1,20 +1,13 @@
-.taskDetail-MainContainer {
-  background-color: #dbd9db;
-  width: 40vw;
-  height: 50vh;
-  border-radius: 3%;
-  padding: 3%;
-}
-
 .taskDetail-UpdateTaskForm {
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 100%;
+  width: 100%;
+ 
 }
 .taskDetail-UpdateTaskForm-Input-Label {
-  background-color: #ededed;
-  border: 1px solid rgb(28, 61, 49);
+  border: 2px solid #dd9b99;
   font-size: 1.5em;
   width: 80%;
   padding: 1em;
@@ -23,11 +16,10 @@
 }
 
 .taskDetail-UpdateTaskForm-Input {
-  background-color: #ededed;
-  border: 1px solid rgb(28, 61, 49);
+  border: 2px solid #dd9b99;
   font-size: 1.5em;
   width: 90%;
-  height: 20vh;
+  height: 8em;
   padding: 1em;
   margin-top: 5%;
   font-weight: bold;
@@ -44,8 +36,14 @@
 }
 
 .taskDetail-UpdateTaskForm-btn button {
-  background-color: #3f88c5;
+  background-color: #b2c6ab;
   font-size: x-large;
   color: white;
   padding: 2% 5%;
+  margin-top: 5%;
+  border: 1px solid #dd9b99;
+}
+.taskDetail-UpdateTaskForm-btn button:hover{
+  background-color: #dd9b99;
+  cursor: pointer;
 }

@@ -3,11 +3,9 @@
   list-style-type: none;
 }
 .task {
-  background-color: #ededed;
-  border: 1px solid rgb(206, 206, 206);
-  border-radius: 5px;
-  padding: 1em;
-  margin-bottom: 0.3em;
+
+  border-bottom: 1px solid rgb(206, 206, 206);
+  padding: 0.8em;
   font-size: x-large;
 
   display: flex;
@@ -17,16 +15,13 @@
 
 .task--checked {
   text-decoration: line-through;
-  color: #da0037;
+  color: #dd9b99;
   opacity: 0.5;
 }
-
-.task__checkbox {
-  margin-right: 1em;
-}
-
 .task_container1 {
   width: 90%;
+  display: flex;
+  
 }
 .task_container2 {
   width: 10%;
@@ -38,10 +33,61 @@
   display: none;
 }
 .task__label_icon {
-  width: 25%;
-  height: 25%;
+  width: 60%;
+  height: 60%;
 }
+
+.task__label_icon:hover{
+  cursor: pointer;
+  opacity: 0.6;
+}
+
 
 .task__label_icon :hover {
   opacity: 0.5;
 }
+
+.round {
+  position: relative;
+  margin-right: 1.4em;
+}
+
+.round label {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+  height: 28px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 28px;
+}
+
+.round label:after {
+  border: 2px solid #fff;
+  border-top: none;
+  border-right: none;
+  content: "";
+  height: 6px;
+  left: 7px;
+  opacity: 0;
+  position: absolute;
+  top: 8px;
+  transform: rotate(-45deg);
+  width: 12px;
+}
+
+.round input[type="checkbox"] {
+  visibility: hidden;
+}
+
+.round input[type="checkbox"]:checked + label {
+  background-color: #dd9b99;
+  border-color: #dd9b99;
+}
+
+.round input[type="checkbox"]:checked + label:after {
+  opacity: 1;
+}
+
