@@ -61,9 +61,9 @@ class TodoList extends PureComponent {
   addTask = (label, description, done = false) => {
     const { tasks } = this.state;
 
-    console.log(tasks.length);
+    console.log(tasks);
     if (tasks.length === 0) {
-      let maxID = 1;
+      let maxID = 0;
       this.setState({
         tasks: [...tasks, { id: ++maxID, label, description, done }],
         taskInputLabel: "",

@@ -4,13 +4,12 @@
   align-items: center;
   height: 100%;
   width: 100%;
- 
 }
 .taskDetail-UpdateTaskForm-Input-Label {
   border: 2px solid #dd9b99;
   font-size: 1.5em;
   width: 80%;
-  padding: 1em;
+  padding: 1em ;
   font-weight: bold;
   font-size: x-large;
 }
@@ -19,9 +18,9 @@
   border: 2px solid #dd9b99;
   font-size: 1.5em;
   width: 90%;
-  height: 8em;
+  height: 7em;
   padding: 1em;
-  margin-top: 5%;
+  margin-top: 2%;
   font-weight: bold;
   font-size: x-large;
   resize: none;
@@ -29,9 +28,9 @@
 
 .taskDetail-UpdateTaskForm-btn {
   width: 100%;
-  height: 40%;
   display: flex;
   justify-content: center;
+  margin-top: 1%;
   align-items: center;
 }
 
@@ -40,7 +39,6 @@
   font-size: x-large;
   color: white;
   padding: 2% 5%;
-  margin-top: 5%;
   border: 1px solid #dd9b99;
 }
 .taskDetail-UpdateTaskForm-btn button:hover{

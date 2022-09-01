@@ -29,9 +29,6 @@
   justify-content: center;
 }
 
-.task_container2_checked {
-  display: none;
-}
 .task__label_icon {
   width: 60%;
   height: 60%;
